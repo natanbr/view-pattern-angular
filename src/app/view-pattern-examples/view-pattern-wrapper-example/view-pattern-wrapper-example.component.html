@@ -1,0 +1,26 @@
+<!-- For option 2, [appViewMain]="mainTmp" can be removed -->
+<view-container-wrapper
+  class="view-container"
+  *ngIf="view$ | async as view"
+  [appViewMain]="mainTmp"
+  [view]="view">
+  <!--
+    Option 2, provide the main view as ngContent
+    note: need to verify that the view.data exists
+  -->
+  <div *ngIf="view.data">
+    <h4> {{ view.data.header }} </h4>
+    <p> {{ view.data.text }} </p>
+    <p> {{ view.data.moreText }} </p>
+  </div>
+
+</view-container-wrapper>
+
+<!-- Option 1: provide reference to a template  -->
+<ng-template #mainTmp let-v="view">
+  <div [class.blur]="v.loader">
+    <h4> {{ v.data.header }} </h4>
+    <p> {{ v.data.text }} </p>
+    <p> {{ v.data.moreText }} </p>
+  </div>
+</ng-template>

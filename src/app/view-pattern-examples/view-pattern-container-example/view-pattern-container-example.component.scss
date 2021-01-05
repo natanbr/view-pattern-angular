@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  position: relative;
+}
+
+.mainView {
+  position: relative;
+  animation: fadeIn ease 1s;
+}
+
+.loader {
+  animation: fadeIn ease 1s;
+
+  position: absolute;
+  height: auto;
+  top: 50%;
+}
+
+.error {
+  animation: fadeIn ease 1s;
+}
+
+.blur {
+  filter:blur(5px)
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}

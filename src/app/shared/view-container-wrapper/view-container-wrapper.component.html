@@ -1,0 +1,22 @@
+<view-container
+  class="view-container"
+  [appViewMain]="appViewMain || ContentTmp"
+  [errorTmp]="errorTmp || DefaultErrorTmp"
+  [loaderTmp]="loaderTmp || DefaultLoaderTmp"
+  [view]="view">
+</view-container>
+
+<ng-template #ContentTmp let-v="view">
+  <div class="mainView"
+    [class.blur]="view.loader">
+    <ng-content></ng-content>
+  </div>
+</ng-template>
+
+<ng-template #DefaultErrorTmp let-v="view">
+  <div class="error">Error: {{ v.error.message }} </div>
+</ng-template>
+
+<ng-template #DefaultLoaderTmp>
+  <div class="loader">Loading...</div>
+</ng-template>

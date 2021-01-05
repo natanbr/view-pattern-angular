@@ -1,0 +1,16 @@
+<div *appView="view; main mainTmp; error errorTmp; loading loaderTmp">
+</div>
+
+<ng-template #mainTmp let-v="view">
+  <h4> {{ v.data.header }} </h4>
+  <p> {{ v.data.text }} </p>
+  <p> {{ v.data.moreText }} </p>
+</ng-template>
+
+<ng-template #errorTmp let-v="view">
+  <div>Error: {{ v.error.message }} </div>
+</ng-template>
+
+<ng-template #loaderTmp let-v="view">
+  <div>Loading...</div>
+</ng-template>

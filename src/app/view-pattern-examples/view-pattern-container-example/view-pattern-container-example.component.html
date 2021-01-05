@@ -1,0 +1,25 @@
+<view-container
+  class="view-container"
+  *ngIf="view$ | async as view"
+  [appViewMain]="mainTmp"
+  [errorTmp]="errorTmp"
+  [loaderTmp]="loaderTmp"
+  [view]="view">
+</view-container>
+
+<ng-template #errorTmp let-v="view">
+  <div class="error">Error: {{ v.error.message }} </div>
+</ng-template>
+
+<ng-template #loaderTmp>
+  <div class="loader">Loading...</div>
+</ng-template>
+
+<ng-template #mainTmp let-v="view">
+  <div class="mainView"
+    [class.blur]="v.loader">
+    <h4> {{ v.data.header }} </h4>
+    <p> {{ v.data.text }} </p>
+    <p> {{ v.data.moreText }} </p>
+  </div>
+</ng-template>

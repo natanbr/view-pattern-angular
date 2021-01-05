@@ -1,0 +1,22 @@
+<!-- V1 no view pattern
+  The issue with this kind of structure:
+  - No enforcment on implmenting loader or errors
+  - Code duplications: ngIf logic should be re-implemented every time
+-->
+<div *ngIf="view$ | async as view" class="container">
+
+  <ng-container *ngIf="view.data && !view.error">
+    <h4> {{ view.data.header }} </h4>
+    <p> {{ view.data.text }} </p>
+    <p> {{ view.data.moreText }} </p>
+  </ng-container>
+
+  <ng-container *ngIf="view.error && !view.loader">
+    <div>Error: {{ view.error.message }} </div>
+  </ng-container>
+
+  <ng-container *ngIf="view.loader">
+    <div>Loading...</div>
+  </ng-container>
+
+</div>
